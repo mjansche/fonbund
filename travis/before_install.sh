@@ -1,13 +1,11 @@
 if [ "$TRAVIS_OS_NAME" = osx -o "$(uname)" = Darwin ]; then
   MY_OS=darwin
-  brew update
+  echo '$ python --version'
+  python --version
+  echo '$ pip --version'
+  pip --version
+  # brew update
   brew bundle --file=travis/Brewfile
-  if [ -z "$VIRTUAL_ENV" ]; then
-    virtualenv -p "$(which "$PY")" venv
-    . venv/bin/activate
-    python --version
-    pip --version
-  fi
 else
   MY_OS=linux
   echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
