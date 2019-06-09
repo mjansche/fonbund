@@ -1,1 +1,2 @@
-brew "bazel"
+tap "bazelbuild/tap"
+brew "bazelbuild/tap/bazel"
